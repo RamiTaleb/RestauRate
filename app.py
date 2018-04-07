@@ -24,7 +24,7 @@ def index():
 
 @app.route('/query')
 def query():
-	sql = text('select * from menu_item')
+	sql = text('select "restaurantId" from restaurant')
 	raters = db.engine.execute(sql)
 	print ('SELECT * FROM Restaurant R, Location L WHERE R.name = $restaurantName AND R.\"restaurantId\" = L.restaurant;')
 	return render_template('query.html', raters=raters)
