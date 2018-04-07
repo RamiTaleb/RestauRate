@@ -29,87 +29,36 @@
 
 	<body>
 		<div class="container">
+            <div class="header">
+                <div class="row">
+                    <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
+                </div>
+            </div>
             
-                <div class="col-lg-2 query-buttons">
-                    <div class="row">
-                        <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <button type="button" class="btn">A</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">B</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">C</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">D</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">E</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">F</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">G</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">H</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">I</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">J</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">K</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">L</button>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
+            <div class="query-buttons buttons">
+                <div class="row">
+                    <div class="col-lg-2"><button type="button" class="btn">Query A</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query B</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query C</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query D</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query E</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query F</button></div>
+                </div> 
 
-                            <div class="row">
-                                <button type="button" class="btn">M</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">N</button>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn">O</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="row">
+                    <div class="col-lg-2"><button type="button" class="btn">Query G</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query H</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query I</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query J</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query K</button></div>
+                    <div class="col-lg-2"><button type="button" class="btn">Query L</button></div>
                 </div>
-
-                <div class="col-lg-10 table-section">
-                    <table class="table table-dark table-fixed">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {%for rater in raters %}
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>{{rater.itemId}}</td>
-                                <td>{{rater.name}}</td>
-                                <td>{{rater.itemType}}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-lg-4"><button type="button" class="btn">Query M</button></div>
+                    <div class="col-lg-4"><button type="button" class="btn">Query N</button></div>
+                    <div class="col-lg-4"><button type="button" class="btn">Query O</button></div>
                 </div>
-		</div>
+            </div>
+        </div>
 	</body>
 </html>

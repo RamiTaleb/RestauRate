@@ -1,3 +1,9 @@
+/*
+
+INDEX
+
+*/
+
 .container{
 	font-family: 'Roboto', sans-serif;
     background: url("../images/bg.png") no-repeat center center fixed;
@@ -9,7 +15,7 @@
     position: relative;
 }
 
-.container .header{
+.container .title{
 	text-align: center;
     color: white;
     
@@ -19,12 +25,12 @@
   	transform: translate(-50%, -50%);
 }
 
-.container .header h1{
+.container .title h1{
 	font-size: 42px;
 	font-weight: 500;
 }
 
-.container .header h2{
+.container .title h2{
 	font-size: 16px;
 	font-weight: 300;
 }
@@ -68,46 +74,18 @@
 }
 
 
-.container .query-buttons{
-    padding: 10px;
+/*
+
+QUERY PAGE
+
+*/
+
+
+.container .header{
+    padding: 40px;
 }
 
-.container .query-buttons .back-btn {
-    width: 150px !important;
-}
-
-.container .query-buttons .row{
-    padding: 10px;
-}
-
-.container .query-buttons .btn{
-    
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    
-    height: 40px;
-    width: 40px;
-    
-}
-
-.container .query-buttons .btn:hover{   
-    background: rgba(0, 0, 0, 0);
-    color: white;
-    border: 1px solid white;
-    
-}
-
-.container .table-section {
-    margin-top: 100px;
-}
-
-.container .table-section .table{
-    background-color: rgba(0,0,0,0.4);
-    color:white;
-}
-
-.container .query-buttons .fa{
+.container .header .fa{
     padding-left: 10px;
     color:white;
     -o-transition:.25s;
@@ -117,6 +95,38 @@
     transition:.25s;
 }
 
-.container .query-buttons .fa:hover{
+.container .header .fa:hover{
     color: rgba(255, 255, 255, 0.4)
 }
+
+.container .query-buttons{
+    padding: 10px;
+    
+    width: 1000px;
+    position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+}
+
+.container .query-buttons .row{
+    padding: 20px;
+}
+
+.container .query-buttons .btn{
+    
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    height: 60px;
+    width: 100%;
+}
+
+.container .query-buttons .btn:hover{   
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    border: 1px solid white;
+    
+}
+
