@@ -35,6 +35,21 @@
                     <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
+            
+            <div class="row">
+                
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Please select a Restaurant from below:
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% for restaurants in results %}
+                        <a class="dropdown-item" href="#">{{ restaurants.name }}</a>
+                        {% end for %}
+                    </div>
+                </div>  
+            
+            </div>
 		</div>
 	</body>
 </html>
