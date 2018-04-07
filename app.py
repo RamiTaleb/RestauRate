@@ -24,17 +24,20 @@ def index():
 
 @app.route('/query')
 def query():
-	sql = text('select "restaurantId" from restaurant')
-	raters = db.engine.execute(sql)
-	print ('SELECT * FROM Restaurant R, Location L WHERE R.name = $restaurantName AND R.\"restaurantId\" = L.restaurant;')
-	return render_template('query.html', raters=raters)
+	sql1 = text('select name from restaurant')
+	sql2 = text('select name from restaurant')
+	sql3 = text('select name from restaurant')
+	sql4 = text('select name from restaurant')
+	result1 = db.engine.execute(sql1)
+	result2 = db.engine.execute(sql2)
+	result3 = db.engine.execute(sql3)
+	result4 = db.engine.execute(sql4)
+	return render_template('query.html', result1=result1, result2=result2, result3=result3, result4=result4)
 
 
 @app.route('/a')
 def queryA():
-	sql = text('select name from restaurant')
-	result = db.engine.execute(sql)
-	render_template('a.html', result=result)
+	return render_template('/query-pages/a.html')
 
 
 @app.route('/e')
@@ -54,11 +57,11 @@ def queryE():
 
 @app.route('/f')
 def queryF():
-	sql = text('''SELECT U.username, R.name, AVG((R8.food + R8.mood + R8.staff + R8.price) / 4) as average_rating, COUNT(R8.*) 
-				FROM Rating R8, Restaurant R, Rater U 
-				WHERE R8.restaurant = R."restaurantId" AND R8.user = U.username 
-				GROUP BY R.name, U.username 
-				ORDER BY R.name, average_rating''')
+	sql = text('''SELECT U.username, R.name, AVG((R8.food + R8.mood + R8.staff + R8.price) / 4) as average_rating, COUNT(R8.*) as count 
+					FROM Rating R8, Restaurant R, Rater U 
+					WHERE R8.restaurant = R."restaurantId" AND R8.user = U.username 
+					GROUP BY R.name, U.username 
+					ORDER BY R.name, average_rating''')
 	result = db.engine.execute(sql)
 	return render_template('/query-pages/f.html', result=result)
 
@@ -94,7 +97,7 @@ def queryH():
 
 @app.route('/i')
 def queryI():
-	sql = text('''SELECT R.name, U.name 
+	sql = text('''SELECT R.name as rname, U.name as uname
 					FROM Restaurant R, Rater U 
 					WHERE R."restaurantId" IN 
 						(SELECT R8.restaurant 

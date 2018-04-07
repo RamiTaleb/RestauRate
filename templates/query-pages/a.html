@@ -30,25 +30,23 @@
 
 	<body>
 		<div class="container">
-            <div class="header">
-                <div class="row">
+            <div class="row">
+                <div class="header">
                     <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
             
-            <div class="row">
-                
+            <div class="row">      
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Please select a Restaurant from below:
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Please select a Restaurant:
+                    <span class="caret"></span>
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        {% for restaurants in results %}
-                        <a class="dropdown-item" href="#">{{ restaurants.name }}</a>
-                        {% end for %}
-                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        {% for restaurant in result %}
+                            <li><a href="#">{{ restaurant.name }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>  
-            
             </div>
 		</div>
 	</body>

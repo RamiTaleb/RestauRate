@@ -36,27 +36,78 @@
             </div>
             
             <div class="query-buttons">
-                <div class="row">
-                    <div class="col-lg-2"><button type="button" class="btn">Query A</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query B</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query C</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query D</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query E</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query F</button></div>
-                </div> 
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Query A - Select a Restaurant:
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                {% for restaurant in result1 %}
+                                    <li><a href="#">{{ restaurant.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div> 
+                        </div>
 
-                <div class="row">
-                    <div class="col-lg-2"><button type="button" class="btn">Query G</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query H</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query I</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query J</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query K</button></div>
-                    <div class="col-lg-2"><button type="button" class="btn">Query L</button></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4"><button type="button" class="btn">Query M</button></div>
-                    <div class="col-lg-4"><button type="button" class="btn">Query N</button></div>
-                    <div class="col-lg-4"><button type="button" class="btn">Query O</button></div>
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Query B - Select a Restaurant:
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                {% for restaurant in result2 %}
+                                    <li><a href="#">{{ restaurant.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Query C - Select a Restaurant:
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                {% for restaurant in result3 %}
+                                    <li><a href="#">{{ restaurant.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Query D - Select a Restaurant:
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                {% for restaurant in result4 %}
+                                    <li><a href="#">{{ restaurant.name }}</a></li>
+                                {% endfor %}
+                                </ul>
+                            </div> 
+                        </div> 
+
+                    </div>      
+
+                    <div class="row">
+                        <div class="col-lg-2"><button type="button" class="btn">Query E</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query F</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query G</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query H</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query I</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query J</button></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-2"><button type="button" class="btn">Query K</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query L</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query M</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query N</button></div>
+                        <div class="col-lg-2"><button type="button" class="btn">Query O</button></div>
+                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
