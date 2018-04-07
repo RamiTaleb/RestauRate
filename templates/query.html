@@ -17,10 +17,13 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- CUSTOM CSS -->
-		<link rel="stylesheet" href="assets/styles/style.css">
+        <link rel="stylesheet" href="../static/css/style.css">
 
 		<!-- GOOGLE FONT -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+        <!-- FAVICON -->
+        <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.png">
 
 	</head>
 
@@ -29,7 +32,7 @@
             
                 <div class="col-lg-2 query-buttons">
                     <div class="row">
-                        <a href="index.html"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
+                        <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
@@ -84,9 +87,9 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="col-lg-10 table-section">
-                    <table class="table table-dark">
+                    <table class="table table-dark table-fixed">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
@@ -96,24 +99,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
+                            {%for rater in raters %}
                             <tr>
                                 <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
+                                <td>{{rater.itemId}}</td>
+                                <td>{{rater.name}}</td>
+                                <td>{{rater.itemType}}</td>
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
