@@ -5,9 +5,9 @@ INDEX
 */
 
 .container{
-	font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif;
     background: url("../images/bg.png") no-repeat center center fixed;
-	background-size: cover;
+    background-size: cover;
     margin:0;
     display: flex;
     min-height: 100%;
@@ -16,43 +16,50 @@ INDEX
 }
 
 .container .title{
-	text-align: center;
+    text-align: center;
     color: white;
+    
     position: absolute;
-  	top: 25%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container .title h1{
-	font-size: 42px;
-	font-weight: 500;
+    font-size: 42px;
+    font-weight: 500;
 }
 
 .container .title h2{
-	font-size: 16px;
-	font-weight: 300;
+    font-size: 16px;
+    font-weight: 300;
 }
 
 .container .buttons {
+    
     width: 800px;
+        
     text-align: center;
+    
     position: absolute;
-  	top: 60%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container .buttons .row {
+    
     height: 100px;
 }
 
 .container .buttons .btn {
     height: 70px;
     width: 200px;
+    
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
+    
     -o-transition:.25s;
     -ms-transition:.25s;
     -moz-transition:.25s;
@@ -94,11 +101,12 @@ QUERY PAGE
 
 .container .query-buttons{
     padding: 10px;
+    
     width: 1000px;
     position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .container .query-buttons .row{
@@ -106,9 +114,11 @@ QUERY PAGE
 }
 
 .container .query-buttons .btn{
+    
     background: rgba(0, 0, 0, 0.5);
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
+    
     height: 60px;
     width: 100%;
 }
@@ -119,4 +129,3 @@ QUERY PAGE
     border: 1px solid white;
     
 }
-
