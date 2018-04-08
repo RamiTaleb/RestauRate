@@ -27,7 +27,9 @@ def index():
 def editMenuItems():
 	sql = text('select "restaurantId", name from restaurant order by name')
 	result = db.engine.execute(sql)
-	return render_template('/edit-pages/edit-menu-items.html', result=result)
+	sql1 = text('select "itemId", name, restaurant from menu_item order by name')
+	result1 = db.engine.execute(sql1)
+	return render_template('/edit-pages/edit-menu-items.html', result=result, result1=result1)
 
 
 @app.route('/add-menu-item', methods=['GET', 'POST'])
@@ -38,6 +40,18 @@ def addMenuItem():
 	sql = text('select "restaurantId", name from restaurant order by name')
 	result = db.engine.execute(sql)
 	return render_template('/edit-pages/edit-menu-items.html', result=result)
+
+
+@app.route('/delete-menu-item', methods=['GET', 'POST'])
+def deleteMenuItem():
+	item = request.form.get('item')
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	sqlX = text('''DELETE FROM menu_item WHERE "itemId" = '''+item+'''''')
+	resultX = db.engine.execute(sqlX)
+	sql1 = text('select "itemId", name, restaurant from menu_item order by name')
+	result1 = db.engine.execute(sql1)
+	return render_template('/edit-pages/edit-menu-items.html', result=result, result1=result1)
 
 
 @app.route('/edit-raters')
