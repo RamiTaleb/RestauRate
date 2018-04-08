@@ -35,6 +35,7 @@
                     <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
+            
             <div class="forms">
                 <div class="row">
                     
@@ -82,7 +83,7 @@
                                     <label for="description">Select a Menu Item:</label>
                                     <select class="form-control" id="item" name="item">
                                         {% for item in result %}
-                                        <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.name }}</option>
+                                        <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.restaurant }}</option>
                                         {% endfor %}
                                     </select>
 
@@ -93,7 +94,6 @@
                     </div>
                 </div>
             </div>
-            
-		</div>
+        </div>       
 	</body>
 </html>

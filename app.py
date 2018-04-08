@@ -27,7 +27,9 @@ def index():
 def editMenuItems():
 	sql = text('select "restaurantId", name from restaurant order by name')
 	result = db.engine.execute(sql)
-	return render_template('/edit-pages/edit-menu-items.html', result=result)
+	sql1 = text('select "itemId", name, restaurant from menu_item order by name')
+	result1 = db.engine.execute(sql1)
+	return render_template('/edit-pages/edit-menu-items.html', result=result, result1=result1)
 
 
 @app.route('/add-menu-item', methods=['GET', 'POST'])
@@ -40,9 +42,23 @@ def addMenuItem():
 	return render_template('/edit-pages/edit-menu-items.html', result=result)
 
 
+@app.route('/delete-menu-item', methods=['GET', 'POST'])
+def deleteMenuItem():
+	item = request.form.get('item')
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	sqlX = text('''DELETE FROM menu_item WHERE "itemId" = '''+item+'''''')
+	resultX = db.engine.execute(sqlX)
+	sql1 = text('select "itemId", name, restaurant from menu_item order by name')
+	result1 = db.engine.execute(sql1)
+	return render_template('/edit-pages/edit-menu-items.html', result=result, result1=result1)
+
+
 @app.route('/edit-raters')
 def editRaters():
-	return render_template('/edit-pages/edit-raters.html')
+	sql = text('select * from rater order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-raters.html', result=result)
 
 
 @app.route('/add-rater', methods=['GET', 'POST'])
@@ -50,11 +66,32 @@ def addRater():
 	rater = Rater(username=request.form.get('username'), email=request.form.get('email'), name=request.form.get('name'), join_date=str(datetime.date.today())[:10], reputation=1, raterType=request.form.get('raterType'))
 	db.session.add(rater)
 	db.session.commit()
-	return render_template('/edit-pages/edit-raters.html')
+	sql = text('select * from rater order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-raters.html', result=result)
+
+
+@app.route('/delete-rater', methods=['GET', 'POST'])
+def deleteRater():
+	username = request.form.get('username')
+	username1 = '\'' + username + '\''
+	sql = text('''DELETE FROM Rater WHERE username = '''+username1+'''''')
+	result = db.engine.execute(sql)
+	sql = text('select * from rater order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-raters.html', result=result)	
 
 
 @app.route('/edit-restaurants')
 def editRestaurants():
+	return render_template('/edit-pages/edit-restaurants.html')
+
+
+@app.route('/add-restaurant', methods=['GET', 'POST'])
+def addResaurant():
+	restaurant = Restaurant(name=request.form.get('name'), restaurantType=request.form.get('type'), url=request.form.get('url'))
+	db.session.add(restaurant)
+	db.session.commit()
 	return render_template('/edit-pages/edit-restaurants.html')
 
 @app.route('/query')
