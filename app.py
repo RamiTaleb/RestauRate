@@ -84,7 +84,9 @@ def deleteRater():
 
 @app.route('/edit-restaurants')
 def editRestaurants():
-	return render_template('/edit-pages/edit-restaurants.html')
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-restaurants.html', result=result)
 
 
 @app.route('/add-restaurant', methods=['GET', 'POST'])
@@ -92,7 +94,19 @@ def addResaurant():
 	restaurant = Restaurant(name=request.form.get('name'), restaurantType=request.form.get('type'), url=request.form.get('url'))
 	db.session.add(restaurant)
 	db.session.commit()
-	return render_template('/edit-pages/edit-restaurants.html')
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-restaurants.html', result=result)
+
+
+@app.route('/delete-restaurant', methods=['GET', 'POST'])
+def deleteRestaurant():
+	restaurant = request.form.get('restaurant')
+	sqlX = text('''DELETE FROM restaurant WHERE "restaurantId" = '''+restaurant+'''''')
+	resultX = db.engine.execute(sqlX)
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-restaurants.html', result=result)
 
 @app.route('/query')
 def query():
