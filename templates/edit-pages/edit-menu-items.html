@@ -35,56 +35,63 @@
                     <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
-            
-            <div class="add">
-                <form method="POST" action="/add-menu-item">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="What is the name of the dish?">
-                        
-                        <label for="type">Food Type</label>
-                        <input type="text" class="form-control" id="type" name="type" placeholder="Where does this dish originate?">
-                        
-                        <label for="category" style="color:white">Category</label>
-                        <select class="form-control" id="category" name="category">
-                            <option name="main" value="main">main</option>
-                            <option name="starter" value="starter">starter</option>
-                            <option name="dessert" value="dessert">dessert</option>
-                        </select>
-                        
-                        <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" name="description" splaceholder="Provide description of the dish.">
-                        
-                        <label for="price">Price</label>
-                        <input type="number" class="form-control" id="price" name="price" placeholder="How much does the meal cost?">
-                        
-                        <label for="restaurant">Restaurant</label>
-                        <select class="form-control" id="restaurant" name="restaurant">
-                            {% for restaurant in result %}
-                                <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurantId }}">{{ restaurant.name }}</option>
-                            {% endfor %}
-                        </select>                      
-                        
+            <div class="forms">
+                <div class="row">
+                    
+                    <div class="col-lg-6">
+                        <div class="add">
+                            <form method="POST" action="/add-menu-item">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="What is the name of the dish?">
+
+                                    <label for="type">Food Type</label>
+                                    <input type="text" class="form-control" id="type" name="type" placeholder="Where does this dish originate?">
+
+                                    <label for="category" style="color:white">Category</label>
+                                    <select class="form-control" id="category" name="category">
+                                        <option name="main" value="main">main</option>
+                                        <option name="starter" value="starter">starter</option>
+                                        <option name="dessert" value="dessert">dessert</option>
+                                    </select>
+
+                                    <label for="description">Description</label>
+                                    <input type="text" class="form-control" id="description" name="description" splaceholder="Provide description of the dish.">
+
+                                    <label for="price">Price</label>
+                                    <input type="number" class="form-control" id="price" name="price" placeholder="How much does the meal cost?">
+
+                                    <label for="restaurant">Restaurant</label>
+                                    <select class="form-control" id="restaurant" name="restaurant">
+                                        {% for restaurant in result %}
+                                            <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurantId }}">{{ restaurant.name }}</option>
+                                        {% endfor %}
+                                    </select>                      
+
+                                </div>
+                                <button type="submit" class="btn">Add</button>
+                            </form>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-            
-            
-            <div class="delete">
-                <form method="POST" action="/delete-menu-item">
-                    <div class="form-group">
-                        
-                        <label for="description">Select a Menu Item:</label>
-                        <select class="form-control" id="item" name="item">
-                            {% for item in result %}
-                            <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.name }}</option>
-                            {% endfor %}
-                        </select>
-                        
+
+                    <div class="col-lg-6">
+                        <div class="delete">
+                            <form method="POST" action="/delete-menu-item">
+                                <div class="form-group">
+
+                                    <label for="description">Select a Menu Item:</label>
+                                    <select class="form-control" id="item" name="item">
+                                        {% for item in result %}
+                                        <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.name }}</option>
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                                <button type="submit" class="btn">Delete</button>
+                            </form>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </form>
+                </div>
             </div>
             
 		</div>

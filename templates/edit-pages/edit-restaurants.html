@@ -36,40 +36,46 @@
                 </div>
             </div>
             
-            <div class="add">
-                <form method="POST" action="/add-restaurant">
-                    <div class="form-group">
-                        
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of restaurant">
-                        
-                        <label for="type">Restaurant Type</label>
-                        <input type="text" class="form-control" id="type" name="type" placeholder="Enter the cuisine served">
-                        
-                        <label for="type">URL</label>
-                        <input type="text" class="form-control" id="url" name="url" placeholder="Enter your website URL">    
-                        
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
+            <div class="forms">
             
-            <div class="delete">
-                <form method="POST" action="/delete-restaurant">
-                    <div class="form-group">
-                        
-                        <label for="description">Select a Restaurant:</label>
-                        <select class="form-control" id="restaurant" name="restaurant">
-                            {% for restaurant in result %}
-                            <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurant.Id }}">{{ restaurant.name }}</option>
-                            {% endfor %}
-                        </select>
-                        
+                <div class="col-lg-6">
+                    <div class="add">
+                        <form method="POST" action="/add-restaurant">
+                            <div class="form-group">
+
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of restaurant">
+
+                                <label for="type">Restaurant Type</label>
+                                <input type="text" class="form-control" id="type" name="type" placeholder="Enter the cuisine served">
+
+                                <label for="type">URL</label>
+                                <input type="text" class="form-control" id="url" name="url" placeholder="Enter your website URL">    
+
+                            </div>
+                            <button type="submit" class="btn">Add</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary">Delete</button>
-                </form>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="delete">
+                        <form method="POST" action="/delete-restaurant">
+                            <div class="form-group">
+
+                                <label for="description">Select a Restaurant:</label>
+                                <select class="form-control" id="restaurant" name="restaurant">
+                                    {% for restaurant in result %}
+                                    <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurant.Id }}">{{ restaurant.name }}</option>
+                                    {% endfor %}
+                                </select>
+
+                            </div>
+                            <button type="submit" class="btn">Delete</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            
 		</div>
 	</body>
 </html>

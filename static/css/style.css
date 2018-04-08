@@ -122,6 +122,46 @@
 
 }
 
+.forms label{
+    padding: 5px;
+}
+
+.forms .btn{
+    
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    
+    height: 40px;
+    width: auto;
+}
+
+.forms .btn:hover{
+      background: rgba(0, 0, 0, 0);
+    color: white;
+    border: 1px solid white;
+}
+
+.add form{
+    padding: 50px;
+    width: 500px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.forms {
+    padding: 20px;
+}
+
+.delete form{
+    padding: 50px;
+    width: 500px;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.container label{
+    color: white;
+}
+
 .submit{
     margin-top: 10px;
 }
