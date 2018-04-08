@@ -40,6 +40,22 @@ def addMenuItem():
 	return render_template('/edit-pages/edit-menu-items.html', result=result)
 
 
+@app.route('/edit-raters')
+def editRaters():
+	return render_template('/edit-pages/edit-raters.html')
+
+
+@app.route('/add-rater', methods=['GET', 'POST'])
+def addRater():
+	rater = Rater(username=request.form.get('username'), email=request.form.get('email'), name=request.form.get('name'), join_date=str(datetime.date.today())[:10], reputation=1, raterType=request.form.get('raterType'))
+	db.session.add(rater)
+	db.session.commit()
+	return render_template('/edit-pages/edit-raters.html')
+
+
+@app.route('/edit-restaurants')
+def editRestaurants():
+	return render_template('/edit-pages/edit-restaurants.html')
 
 @app.route('/query')
 def query():
