@@ -35,6 +35,32 @@
                     <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
+            
+            <div class="add">
+                <form method="POST" action="/add-menu-item">
+                    <div class="form-group">
+                        
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+                        
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter a username">
+                        
+                        <label for="type">Email</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
+                        
+                        <label for="description">Rater Type</label>
+                        <select class="form-control" id="type" name="type">
+                            <option name="online" value="online">online</option>
+                            <option name="critic" value="critic">food critic</option>
+                            <option name="blog" value="blog">blog</option>
+                        </select>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
 		</div>
 	</body>
 </html>
