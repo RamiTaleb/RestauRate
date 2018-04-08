@@ -54,6 +54,22 @@
                 </form>
             </div>
             
+            <div class="delete">
+                <form method="POST" action="/delete-restaurant">
+                    <div class="form-group">
+                        
+                        <label for="description">Select a Restaurant:</label>
+                        <select class="form-control" id="restaurant" name="restaurant">
+                            {% for restaurant in result %}
+                            <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurant.Id }}">{{ restaurant.name }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+            
 		</div>
 	</body>
 </html>
