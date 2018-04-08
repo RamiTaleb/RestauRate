@@ -46,6 +46,55 @@ def queryA():
 	return render_template('/query-pages/a.html', result=result)
 
 
+@app.route('/b', methods=['GET', 'POST'])
+def queryB():
+	name = request.form.get('queryB')
+	name1 = '\'' + name + '\''
+	sql = '''SELECT MI.name as mname, MI.price, MI.description, MI.category 
+				FROM menu_item MI 
+				WHERE MI.restaurant = 
+					(SELECT R."restaurantId" 
+ 					FROM Restaurant R 
+ 					WHERE R.name = '''+name1+''') 
+ 					ORDER BY category ASC'''
+	result = db.engine.execute(sql)
+	return render_template('/query-pages/b.html', result=result)
+
+
+@app.route('/c', methods=['GET', 'POST'])
+def queryC():
+	name = request.form.getlist('queryC')
+	names = []
+	for i in range(len(name)):
+		names.append('')
+	for i in range(0, len(name)):
+		names[i] = '\'' + name[i] + '\''
+	names = str(names)
+	names = names.replace('[','')
+	names = names.replace(']','')
+	names = names.replace('\"','')
+	sql = '''SELECT DISTINCT(L.manager_name)
+	 			FROM Location L, Restaurant R
+	 			WHERE R."restaurantId" = L.restaurant AND R."restaurantType" IN ('''+names+''')'''
+	result = db.engine.execute(sql)
+	return render_template('/query-pages/c.html', result=result)
+
+
+@app.route('/d', methods=['GET', 'POST'])
+def queryD():
+	name = request.form.get('queryD')
+	name1 = '\'' + name + '\''
+	sql = '''SELECT MI.name as mname, MI.price, L.manager_name, R.url, L.hour_open
+				FROM Restaurant R, Location L, menu_item MI 
+				WHERE MI.price >= 
+				ALL(SELECT MI1.price 
+					FROM menu_item MI1 
+					WHERE MI1.restaurant = R."restaurantId") 
+					AND R."restaurantId" = L.restaurant AND MI.restaurant = R."restaurantId" AND R.name = '''+name1+''''''
+	result = db.engine.execute(sql)
+	return render_template('/query-pages/d.html', result=result)
+
+
 @app.route('/e')
 def queryE():
 	sql = text('''SELECT R."restaurantType", MI.category, AVG(MI.price) AS average_price 

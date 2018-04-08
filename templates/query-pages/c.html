@@ -1,40 +1,58 @@
 <html>
-	<head>
+    <head>
 
-		<!-- TITLE -->
-		<title>RestauRate</title>
+        <!-- TITLE -->
+        <title>RestauRate</title>
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
         <!-- FONT AWESOME -->
         <script src="https://use.fontawesome.com/6a5890b223.js"></script>
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-		<!-- CUSTOM CSS -->
-		<link rel="stylesheet" href="../../static/css/style.css">
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="../static/css/style.css">
 
-		<!-- GOOGLE FONT -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <!-- GOOGLE FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
         <!-- FAVICON -->
         <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.png">
 
+    </head>
 
-	</head>
+    <body>
+        <div class="container">
 
-	<body>
-		<div class="container">
             <div class="header">
                 <div class="row">
                     <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
-		</div>
-	</body>
+
+            <div class="data">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Manager Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in result %}
+                        <tr>
+                            <td>{{data.manager_name}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+    </body>
 </html>
