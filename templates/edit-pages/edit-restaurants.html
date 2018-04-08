@@ -35,6 +35,25 @@
                     <a href="/"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
+            
+            <div class="add">
+                <form method="POST" action="/add-restaurant">
+                    <div class="form-group">
+                        
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name of restaurant">
+                        
+                        <label for="type">Restaurant Type</label>
+                        <input type="text" class="form-control" id="type" name="type" placeholder="Enter the cuisine served">
+                        
+                        <label for="type">URL</label>
+                        <input type="text" class="form-control" id="url" name="url" placeholder="Enter your website URL">    
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+            
 		</div>
 	</body>
 </html>
