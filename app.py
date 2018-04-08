@@ -5,6 +5,7 @@ from settings import app, db
 from models import *
 from flask import render_template, redirect, url_for, request
 from sqlalchemy import text
+from models import Rater, Restaurant, Location, Rating, MenuItem, RatingItem
 
 
 #populateRaterTable(db)
@@ -20,6 +21,24 @@ from sqlalchemy import text
 @app.route('/')
 def index():
 	return render_template('index.html')
+
+
+@app.route('/edit-menu-items')
+def editMenuItems():
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-menu-items.html', result=result)
+
+
+@app.route('/add-menu-item', methods=['GET', 'POST'])
+def addMenuItem():
+	item = MenuItem(name=request.form.get('name'), price=request.form.get('price'), restaurant=request.form.get('restaurant'), description=request.form.get('description'), itemType=request.form.get('type'), category=request.form.get('category'))
+	db.session.add(item)
+	db.session.commit()
+	sql = text('select "restaurantId", name from restaurant order by name')
+	result = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-menu-items.html', result=result)
+
 
 
 @app.route('/query')

@@ -37,31 +37,31 @@
             </div>
             
             <div class="add">
-                <form>
+                <form method="POST" action="/add-menu-item">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="What is the name of the dish?">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="What is the name of the dish?">
                         
                         <label for="type">Food Type</label>
-                        <input type="text" class="form-control" id="type" placeholder="Where does this dish originate?">
+                        <input type="text" class="form-control" id="type" name="type" placeholder="Where does this dish originate?">
                         
                         <label for="category" style="color:white">Category</label>
-                        <select class="form-control" id="category">
+                        <select class="form-control" id="category" name="category">
                             <option name="main" value="main">main</option>
                             <option name="starter" value="starter">starter</option>
                             <option name="dessert" value="dessert">dessert</option>
                         </select>
                         
                         <label for="description">Description</label>
-                        <input type="text" class="form-control" id="description" placeholder="Provide description of the dish.">
+                        <input type="text" class="form-control" id="description" name="description" splaceholder="Provide description of the dish.">
                         
                         <label for="price">Price</label>
-                        <input type="number" class="form-control" id="price" placeholder="How much does the meal cost?">
+                        <input type="number" class="form-control" id="price" name="price" placeholder="How much does the meal cost?">
                         
                         <label for="restaurant">Restaurant</label>
-                        <select class="form-control" id="restaurant">
-                            {% for restaurant in restaurants %}
-                                <option name="{{ restaurant }}" value="{{ restaurant }}">{{ restaurant.name }}</option>
+                        <select class="form-control" id="restaurant" name="restaurant">
+                            {% for restaurant in result %}
+                                <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurantId }}">{{ restaurant.name }}</option>
                             {% endfor %}
                         </select>                      
                         
