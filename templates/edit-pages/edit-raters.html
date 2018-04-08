@@ -61,6 +61,22 @@
                 </form>
             </div>
             
+             <div class="delete">
+                <form method="POST" action="/delete-rater">
+                    <div class="form-group">
+                        
+                        <label for="description">Select a Rater:</label>
+                        <select class="form-control" id="rater" name="rater">
+                            {% for rater in result %}
+                            <option name="{{ rater.username }}" value="{{ rater.username }}">{{ rater.name }} - {{ rater.username }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+            
 		</div>
 	</body>
 </html>
