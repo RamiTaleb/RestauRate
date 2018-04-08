@@ -37,26 +37,28 @@
             </div>
 
             <div class="data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Menu Item Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Menu Item Description</th>
-                            <th scope="col">Menu Item Category</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for data in result %}
-                        <tr>
-                            <td class="filterable-cell">{{data.mname}}</td>
-                            <td class="filterable-cell">{{data.price}}</td>
-                            <td class="filterable-cell">{{data.description}}</td>
-                            <td class="filterable-cell">{{data.category}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Menu Item Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Menu Item Description</th>
+                                <th scope="col">Menu Item Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in result %}
+                            <tr>
+                                <td class="filterable-cell">{{data.mname}}</td>
+                                <td class="filterable-cell">{{data.price}}</td>
+                                <td class="filterable-cell">{{data.description}}</td>
+                                <td class="filterable-cell">{{data.category}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
         </div>

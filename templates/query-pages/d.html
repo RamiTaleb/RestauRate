@@ -37,28 +37,30 @@
             </div>
 
             <div class="data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Menu Item Name</th>
-                            <th scope="col">Menu Item Price</th>
-                            <th scope="col">Manager Name</th>
-                            <th scope="col">URL</th>
-                            <th scope="col">Hour Open</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for data in result %}
-                        <tr>
-                            <td class="filterable-cell">{{data.mname}}</td>
-                            <td class="filterable-cell">{{data.price}}</td>
-                            <td class="filterable-cell">{{data.manager_name}}</td>
-                            <td class="filterable-cell">{{data.url}}</td>
-                            <td class="filterable-cell">{{data.hour_open}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Menu Item Name</th>
+                                <th scope="col">Menu Item Price</th>
+                                <th scope="col">Manager Name</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Hour Open</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in result %}
+                            <tr>
+                                <td class="filterable-cell">{{data.mname}}</td>
+                                <td class="filterable-cell">{{data.price}}</td>
+                                <td class="filterable-cell">{{data.manager_name}}</td>
+                                <td class="filterable-cell">{{data.url}}</td>
+                                <td class="filterable-cell">{{data.hour_open}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
         </div>

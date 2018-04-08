@@ -183,44 +183,14 @@
     max-height: 600px;
 }
 
-/*.data{
- position: absolute;
+.data{
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
 
-}*/
-
-table {
-    width: 100%;
 }
 
-tbody, tr { display: block; }
-
-tr:after {
-    content: ' ';
-    display: block;
-    visibility: hidden;
-    clear: both;
-}
-
-thead th {
-    height: 10vh;
-
-    /*text-align: left;*/
-}
-
-tbody {
-    height: 120px;
-    overflow-y: auto;
-}
-
-thead {
-    /* fallback */
-}
-
-
-tbody td, thead th {
-    width: 10%;
-    float: left;
+.table-responsive {
+    max-height: 90vh;
 }

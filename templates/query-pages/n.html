@@ -37,22 +37,24 @@
             </div>
 
             <div class="data">
-            	<table class="table">
-	                <thead>
-	                    <tr>
-	                        <th scope="col">Rater Name</th>
-	                        <th scope="col">Rater Email</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    {% for data in result %}
-	                    <tr>
-	                        <td class="filterable-cell">{{data.name}}</td>
-	                        <td class="filterable-cell">{{data.email}}</td>
-	                    </tr>
-	                    {% endfor %}
-	                </tbody>
-	            </table>
+            	<div class="table-responsive">
+	            	<table class="table">
+		                <thead>
+		                    <tr>
+		                        <th scope="col">Rater Name</th>
+		                        <th scope="col">Rater Email</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    {% for data in result %}
+		                    <tr>
+		                        <td class="filterable-cell">{{data.name}}</td>
+		                        <td class="filterable-cell">{{data.email}}</td>
+		                    </tr>
+		                    {% endfor %}
+		                </tbody>
+		            </table>
+	       		</div>
             </div>
 
     	</div>

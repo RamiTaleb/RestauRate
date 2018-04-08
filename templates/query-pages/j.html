@@ -37,28 +37,30 @@
             </div>
 
             <div class="data">
-				<table class="table">
-	                <thead>
-	                    <tr>
-	                        <th scope="col">Restaurant Name</th>
-	                        <th scope="col">Max Food Rating</th>
-	                        <th scope="col">Max Price Rating</th>
-	                        <th scope="col">Max Mood Rating</th>
-	                        <th scope="col">Max Staff Rating</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    {% for data in result %}
-	                    <tr>
-	                        <td class="filterable-cell">{{data.name}}</td>
-	                        <td class="filterable-cell">{{data.food}}</td>
-	                        <td class="filterable-cell">{{data.price}}</td>
-	                        <td class="filterable-cell">{{data.mood}}</td>
-	                        <td class="filterable-cell">{{data.staff}}</td>
-	                    </tr>
-	                    {% endfor %}
-	                </tbody>
-	            </table>
+            	<div class="table-responsive">
+					<table class="table">
+		                <thead>
+		                    <tr>
+		                        <th scope="col">Restaurant Name</th>
+		                        <th scope="col">Max Food Rating</th>
+		                        <th scope="col">Max Price Rating</th>
+		                        <th scope="col">Max Mood Rating</th>
+		                        <th scope="col">Max Staff Rating</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    {% for data in result %}
+		                    <tr>
+		                        <td class="filterable-cell">{{data.name}}</td>
+		                        <td class="filterable-cell">{{data.food}}</td>
+		                        <td class="filterable-cell">{{data.price}}</td>
+		                        <td class="filterable-cell">{{data.mood}}</td>
+		                        <td class="filterable-cell">{{data.staff}}</td>
+		                    </tr>
+		                    {% endfor %}
+		                </tbody>
+		            </table>
+	        	</div>
             </div>
 
     	</div>

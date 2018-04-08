@@ -37,28 +37,30 @@
             </div>
 
             <div class="data">
-				<table class="table">
-	                <thead>
-	                    <tr>
-	                        <th scope="col">Rater Name</th>
-	                        <th scope="col">Rater Join Date</th>
-	                        <th scope="col">Rater Reputation</th>
-	                        <th scope="col">Restaurant Name</th>
-	                        <th scope="col">Rating Date</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                    {% for data in result %}
-	                    <tr>
-	                        <td class="filterable-cell">{{data.uname}}</td>
-	                        <td class="filterable-cell">{{data.join_date}}</td>
-	                        <td class="filterable-cell">{{data.reputation}}</td>
-	                        <td class="filterable-cell">{{data.rname}}</td>
-	                        <td class="filterable-cell">{{data.rdate}}</td>
-	                    </tr>
-	                    {% endfor %}
-	                </tbody>
-	            </table>
+            	<div class="table-responsive">
+					<table class="table">
+		                <thead>
+		                    <tr>
+		                        <th scope="col">Rater Name</th>
+		                        <th scope="col">Rater Join Date</th>
+		                        <th scope="col">Rater Reputation</th>
+		                        <th scope="col">Restaurant Name</th>
+		                        <th scope="col">Rating Date</th>
+		                    </tr>
+		                </thead>
+		                <tbody>
+		                    {% for data in result %}
+		                    <tr>
+		                        <td class="filterable-cell">{{data.uname}}</td>
+		                        <td class="filterable-cell">{{data.join_date}}</td>
+		                        <td class="filterable-cell">{{data.reputation}}</td>
+		                        <td class="filterable-cell">{{data.rname}}</td>
+		                        <td class="filterable-cell">{{data.rdate}}</td>
+		                    </tr>
+		                    {% endfor %}
+		                </tbody>
+		            </table>
+	        	</div>
             </div>
 
     	</div>
