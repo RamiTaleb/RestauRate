@@ -69,6 +69,24 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
+            
+            
+            <div class="delete">
+                <form method="POST" action="/delete-rater">
+                    <div class="form-group">
+                        
+                        <label for="description">Select a Menu Item:</label>
+                        <select class="form-control" id="item" name="item">
+                            {% for item in result %}
+                            <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.name }}</option>
+                            {% endfor %}
+                        </select>
+                        
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+            
 		</div>
 	</body>
 </html>
