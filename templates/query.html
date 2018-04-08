@@ -42,7 +42,7 @@
                             <form method="POST" action="/a">
                                 <div class="form-group">
                                     <label for="queryA" style="color:white">Query A - Select a Restaurant:</label>
-                                    <select class="form-control" id="queryA" name="queryA" data-live-search="true">
+                                    <select class="form-control" id="queryA" name="queryA">
                                         {% for restaurant in result1 %}
                                             <option name="{{ restaurant.name }}" value="{{ restaurant.name }}">{{ restaurant.name }}</option>
                                         {% endfor %}
@@ -53,12 +53,12 @@
                         </div>
 
                         <div class="col-lg-3">
-                            <form method="POST" action="/b">
+                            <form>
                                 <div class="form-group">
                                     <label for="queryB" style="color:white">Query B - Select a Restaurant:</label>
-                                    <select class="form-control" id="queryB" name="queryB">
+                                    <select class="form-control" id="queryB">
                                         {% for restaurant in result2 %}
-                                            <option name="{{ restaurant.name }}" value="{{ restaurant.name }}">{{ restaurant.name }}</option>
+                                            <option>{{ restaurant.name }}</option>
                                         {% endfor %}
                                     </select>
                                     <input class="btn submit" type="submit" />
@@ -67,12 +67,12 @@
                         </div>
 
                         <div class="col-lg-3">
-                            <form method="POST" action="/c">
+                            <form>
                                 <div class="form-group">
                                     <label for="queryC" style="color:white">Query C - Select a Cuisine:</label>
-                                    <select class="form-control selectpicker" id="queryC" name="queryC" multiple>
+                                    <select class="form-control" id="queryC">
                                         {% for restaurant in result3 %}
-                                            <option name="{{ restaurant.restaurantType }}" value="{{ restaurant.restaurantType }}">{{ restaurant.restaurantType }}</option>
+                                            <option>{{ restaurant.restaurantType }}</option>
                                         {% endfor %}
                                     </select>
                                     <input class="btn submit" type="submit" />
@@ -81,12 +81,12 @@
                         </div>
 
                         <div class="col-lg-3">
-                            <form method="post" action="/d">
+                            <form>
                                 <div class="form-group">
                                     <label for="queryD" style="color:white">Query D - Select a Restaurant:</label>
-                                    <select class="form-control" id="queryD" name="queryD">
+                                    <select class="form-control" id="queryD">
                                         {% for restaurant in result4 %}
-                                            <option name="{{ restaurant.name }}" value="{{ restaurant.name }}">{{ restaurant.name }}</option>
+                                            <option>{{ restaurant.name }}</option>
                                         {% endfor %}
                                     </select>
                                     <input class="btn submit" type="submit" />
@@ -97,20 +97,20 @@
                     </div>      
 
                     <div class="row">
-                        <div class="col-lg-2"><button type="button" class="btn">Query E</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query F</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query G</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query H</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query I</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query J</button></div>
+                        <div class="col-lg-2"><a href="/queryE"><button type="button" class="btn">Query E</button></a></div>
+                        <div class="col-lg-2"><a href="/queryF"><button type="button" class="btn">Query F</button></a></div>
+                        <div class="col-lg-2"><a href="/queryG"><button type="button" class="btn">Query G</button></a></div>
+                        <div class="col-lg-2"><a href="/queryH"><button type="button" class="btn">Query H</button></a></div>
+                        <div class="col-lg-2"><a href="/queryI"><button type="button" class="btn">Query I</button></a></div>
+                        <div class="col-lg-2"><a href="/queryJ"><button type="button" class="btn">Query J</button></a></div>
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-2"><button type="button" class="btn">Query K</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query L</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query M</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query N</button></div>
-                        <div class="col-lg-2"><button type="button" class="btn">Query O</button></div>
+                        <div class="col-lg-2"><a href="/queryK"><button type="button" class="btn">Query K</button></a></div>
+                        <div class="col-lg-2"><a href="/queryL"><button type="button" class="btn">Query L</button></a></div>
+                        <div class="col-lg-2"><a href="/queryM"><button type="button" class="btn">Query M</button></a></div>
+                        <div class="col-lg-2"><a href="/queryN"><button type="button" class="btn">Query N</button></a></div>
+                        <div class="col-lg-2"><a href="/queryO"><button type="button" class="btn">Query O</button></a></div>
                     </div>
                 </div> 
             </div>
