@@ -66,7 +66,7 @@
                     <div class="form-group">
                         
                         <label for="description">Select a Rater:</label>
-                        <select class="form-control" id="rater" name="rater">
+                        <select class="form-control" id="username" name="username">
                             {% for rater in result %}
                             <option name="{{ rater.username }}" value="{{ rater.username }}">{{ rater.name }} - {{ rater.username }}</option>
                             {% endfor %}
