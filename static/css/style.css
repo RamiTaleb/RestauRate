@@ -1,9 +1,3 @@
-/*
-
-INDEX
-
-*/
-
 .container{
     font-family: 'Roboto', sans-serif;
     background: url("../images/bg.png") no-repeat center center fixed;
@@ -70,13 +64,15 @@ INDEX
     border: 1px solid white;
 }
 
-
-/*
-
-QUERY PAGE
-
-*/
-
+.btn {
+    
+    -o-transition:.25s;
+    -ms-transition:.25s;
+    -moz-transition:.25s;
+    -webkit-transition:.25s;
+    transition:.25s;
+    
+}
 
 .container .header{
     padding: 40px;
@@ -115,7 +111,7 @@ QUERY PAGE
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
     
-    height: 30px;
+    height: 50px;
     width: 100%;
 }
 
@@ -126,9 +122,8 @@ QUERY PAGE
 
 }
 
-.container .submit{
-    height: 20px;
-    width: 40px;
+.submit{
+    margin-top: 10px;
 }
 
 .container th{
