@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from dbFiller import *
 from settings import app, db
 from models import *
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, url_for, request
 from sqlalchemy import text
 
 
@@ -24,10 +24,10 @@ def index():
 
 @app.route('/query')
 def query():
-	sql1 = text('select name from restaurant')
-	sql2 = text('select name from restaurant')
-	sql3 = text('select name from restaurant')
-	sql4 = text('select name from restaurant')
+	sql1 = text('select name from restaurant order by name')
+	sql2 = text('select name from restaurant order by name')
+	sql3 = text('select DISTINCT("restaurantType") from restaurant order by "restaurantType"')
+	sql4 = text('select name from restaurant order by name')
 	result1 = db.engine.execute(sql1)
 	result2 = db.engine.execute(sql2)
 	result3 = db.engine.execute(sql3)
@@ -35,9 +35,15 @@ def query():
 	return render_template('query.html', result1=result1, result2=result2, result3=result3, result4=result4)
 
 
-@app.route('/a')
+@app.route('/a', methods=['GET', 'POST'])
 def queryA():
-	return render_template('/query-pages/a.html')
+	name = request.form.get('queryA')
+	name1 = '\'' + name + '\''
+	sql = '''SELECT * 
+	 			FROM Restaurant R, Location L 
+	 			WHERE R.name = '''+name1+''' AND R."restaurantId" = L.restaurant'''
+	result = db.engine.execute(sql)
+	return render_template('/query-pages/a.html', result=result)
 
 
 @app.route('/e')
@@ -87,9 +93,9 @@ def queryH():
 					WHERE R."restaurantId" IN 
 						(SELECT R8.restaurant 
  						FROM Rating R8 
- 						WHERE R8.staff < ANY(Select Rate.staff 
+ 						WHERE R8.staff < ANY(SELECT Rate.staff 
 											FROM Rating Rate 
-											WHERE Rate.user = ‘Rami109’)) 
+											WHERE Rate.user = 'Rami109')) 
 											AND R."restaurantId" = L.restaurant''')
 	result = db.engine.execute(sql)
 	return render_template('/query-pages/h.html', result=result)
@@ -105,14 +111,14 @@ def queryI():
  						WHERE R8.restaurant IN 
  							(SELECT R1."restaurantId" 
   							FROM Restaurant R1 
-  							WHERE R1."restaurantType" = ‘Japanese’) 
+  							WHERE R1."restaurantType" = 'Japanese') 
  						AND R8.food >= 
  							ALL(SELECT Rate.food 
 	 						FROM Rating Rate 
 							WHERE Rate.restaurant 
 	 						IN (SELECT R2."restaurantId" 
 								FROM Restaurant R2 
-								WHERE R2."restaurantType" =’Japanese’)) 
+								WHERE R2."restaurantType" = 'Japanese')) 
  						AND R8.user = U.username)''')
 	result = db.engine.execute(sql)
 	return render_template('/query-pages/i.html', result=result)
@@ -122,27 +128,27 @@ def queryI():
 def queryJ():
 	sql = text('''SELECT restaurant.name, MAX(rating.food) AS food, MAX(rating.price) AS price, MAX(rating.mood) AS mood, MAX(rating.staff) AS staff
 					FROM restaurant, rating
-					WHERE restaurant."restaurantType" = ’Japanese’
+					WHERE restaurant."restaurantType" = 'Japanese'
 					AND rating.restaurant = restaurant."restaurantId"
 					GROUP BY restaurant.name, food, price, mood, staff
 					HAVING food = (SELECT MAX(rating.food) AS food
 									FROM restaurant, rating
-									WHERE restaurant."restaurantType" = ’Japanese’
+									WHERE restaurant."restaurantType" = 'Japanese'
 									AND rating.restaurant = restaurant."restaurantId"
 					                )
 					       AND price = (SELECT MAX(rating.price) AS price
 									FROM restaurant, rating
-									WHERE restaurant."restaurantType" = ’Japanese’
+									WHERE restaurant."restaurantType" = 'Japanese'
 									AND rating.restaurant = restaurant."restaurantId"
 					                )
 					       AND staff = (SELECT MAX(rating.staff) AS staff
 									FROM restaurant, rating
-									WHERE restaurant."restaurantType" = ’Japanese’
+									WHERE restaurant."restaurantType" = 'Japanese'
 									AND rating.restaurant = restaurant."restaurantId"
 					                )
 					       AND mood = (SELECT MAX(rating.mood) AS mood
 									FROM restaurant, rating
-									WHERE restaurant."restaurantType" =’Japanese’
+									WHERE restaurant."restaurantType" = 'Japanese'
 									AND rating.restaurant = restaurant."restaurantId"
 					                )
 					ORDER BY restaurant.name''')
@@ -152,7 +158,7 @@ def queryJ():
 
 @app.route('/k')
 def queryK():
-	sql = text('''SELECT U.name, U.join_date, U.reputation, R.name, R8.date 
+	sql = text('''SELECT U.name as uname, U.join_date, U.reputation, R.name as rname, R8.date as rdate
 					FROM Rater U, Restaurant R, Rating R8 
 					WHERE U.username IN 
 					(SELECT U1.username 
@@ -173,7 +179,7 @@ def queryK():
 
 @app.route('/l')
 def queryL():
-	sql = text('''SELECT U.name, U.join_date, U.reputation, R.name, R8.date 
+	sql = text('''SELECT U.name as uname, U.join_date, U.reputation, R.name as rname, R8.date as rdate
 					FROM Rater U, Restaurant R, Rating R8 
 					WHERE U.username IN 
 					(SELECT U1.username 
@@ -207,18 +213,18 @@ def queryM():
 					  WHERE Rate.user = U1.username AND Rate.restaurant IN 
 					  (SELECT R."restaurantId" 
 					   FROM Restaurant R 
-					   WHERE R.name = ‘Big Daddy’)) 
+					   WHERE R.name = 'Big Daddy')) 
 					 >=  All(SELECT COUNT(*) 
 							FROM Rating Rate1 
 							WHERE Rate1.restaurant IN 
 							(SELECT R."restaurantId" 
 							FROM Restaurant R 
-							WHERE R.name = ‘Big Daddy’) 
+							WHERE R.name = 'Big Daddy') 
 							GROUP BY Rate1.user) 
 					 AND R8.user = U.username AND R8.restaurant IN 
 					 (SELECT R."restaurantId"
 					  FROM Restaurant R 
-					  WHERE R.name = ‘Big Daddy’))''')
+					  WHERE R.name = 'Big Daddy'))''')
 	result = db.engine.execute(sql)
 	return render_template('/query-pages/m.html', result=result)
 
@@ -243,7 +249,7 @@ def queryN():
 
 @app.route('/o')
 def queryO():
-	sql = text('''SELECT U.name, U."raterType", U.email, R.name, R8.food, R8.price, R8.mood, R8.staff, R8.comments 
+	sql = text('''SELECT U.name as uname, U."raterType", U.email, R.name as rname, R8.food, R8.price, R8.mood, R8.staff, R8.comments 
 					FROM Rater U, Rating R8, Restaurant R 
 					WHERE U.username IN 
 					(SELECT U1.username 

@@ -1,53 +1,76 @@
 <html>
-	<head>
+    <head>
 
-		<!-- TITLE -->
-		<title>RestauRate</title>
+        <!-- TITLE -->
+        <title>RestauRate</title>
 
-		<!-- Bootstrap -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
         <!-- FONT AWESOME -->
         <script src="https://use.fontawesome.com/6a5890b223.js"></script>
 
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-		<!-- CUSTOM CSS -->
-		<link rel="stylesheet" href="../../static/css/style.css">
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="../static/css/style.css">
 
-		<!-- GOOGLE FONT -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <!-- GOOGLE FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
 
         <!-- FAVICON -->
         <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.png">
 
+    </head>
 
-	</head>
+    <body>
+        <div class="container">
 
-	<body>
-		<div class="container">
-            <div class="row">
-                <div class="header">
+            <div class="header">
+                <div class="row">
                     <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
-            
-            <div class="row">      
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> Please select a Restaurant:
-                    <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                        {% for restaurant in result %}
-                            <li><a href="#">{{ restaurant.name }}</a></li>
+
+            <div class="data">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Restaurant ID</th>
+                            <th scope="col">Restaurant Name</th>
+                            <th scope="col">Restaurant Type</th>
+                            <th scope="col">URL</th>
+                            <th scope="col">Location ID</th>
+                            <th scope="col">Manager Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Street Address</th>
+                            <th scope="col">Hour Open</th>
+                            <th scope="col">Hour Close</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in result %}
+                        <tr>
+                            <td>{{data.restaurantId}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.restaurantType}}</td>
+                            <td>{{data.url}}</td>
+                            <td>{{data.locationId}}</td>
+                            <td>{{data.manager_name}}</td>
+                            <td>{{data.phone_number}}</td>
+                            <td>{{data.street_number}}</td>
+                            <td>{{data.hour_open}}</td>
+                            <td>{{data.hour_close}}</td>
+                        </tr>
                         {% endfor %}
-                    </ul>
-                </div>  
+                    </tbody>
+                </table>
             </div>
-		</div>
-	</body>
+            
+        </div>
+    </body>
 </html>

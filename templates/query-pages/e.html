@@ -30,37 +30,33 @@
 	<body>
 		<div class="container">
 
-            <div class="row">
-
-            	<div class="col-lg-6">
-               		<div class="header">
-                    	<a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
-                	</div>
-            	</div>
-
-            	<div class="col-lg-6">
-	            	<div class="table-section">
-			            <table class="table">
-			                <thead>
-			                    <tr>
-			                        <th scope="col">Restaurant Type</th>
-			                        <th scope="col">Menu Item Category</th>
-			                        <th scope="col">Average Price</th>
-			                    </tr>
-			                </thead>
-			                <tbody>
-			                    {% for data in result %}
-			                    <tr>
-			                        <td>{{data.restaurantType}}</td>
-			                        <td>{{data.category}}</td>
-			                        <td>{{data.average_price}}</td>
-			                    </tr>
-			                    {% endfor %}
-			                </tbody>
-			            </table>
-			        </div>
-            	</div>
+        	<div class="header">
+        		<div class="row">
+                    <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
+                </div>
             </div>
+
+            <div class="data">
+            	<table class="table">
+			    	<thead>
+			        	<tr>
+			       			<th scope="col">Restaurant Type</th>
+			    			<th scope="col">Menu Item Category</th>
+			                <th scope="col">Average Price</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+                    	{% for data in result %}
+			            <tr>
+			            	<td>{{data.restaurantType}}</td>
+			                <td>{{data.category}}</td>
+			                <td>{{data.average_price}}</td>
+			            </tr>
+			            {% endfor %}
+			        </tbody>
+			    </table>
+            </div>
+            
     	</div>
 	</body>
 </html>

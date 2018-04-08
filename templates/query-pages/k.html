@@ -6,9 +6,9 @@
 
 		<!-- Bootstrap -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-                
+        
         <!-- FONT AWESOME -->
-        <script src="https://use.fontawesome.com/6a5890b223.js"></script>
+		<script src="https://use.fontawesome.com/6a5890b223.js"></script>
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -17,7 +17,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 		<!-- CUSTOM CSS -->
-		<link rel="stylesheet" href="../../static/css/style.css">
+        <link rel="stylesheet" href="../static/css/style.css">
 
 		<!-- GOOGLE FONT -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -25,16 +25,42 @@
         <!-- FAVICON -->
         <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon.png">
 
-
 	</head>
 
 	<body>
 		<div class="container">
-            <div class="header">
-                <div class="row">
+
+        	<div class="header">
+        		<div class="row">
                     <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
                 </div>
             </div>
-		</div>
+
+            <div class="data">
+				<table class="table">
+	                <thead>
+	                    <tr>
+	                        <th scope="col">Rater Name</th>
+	                        <th scope="col">Rater Join Date</th>
+	                        <th scope="col">Rater Reputation</th>
+	                        <th scope="col">Restaurant Name</th>
+	                        <th scope="col">Rating Date</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                    {% for data in result %}
+	                    <tr>
+	                        <td>{{data.uname}}</td>
+	                        <td>{{data.join_date}}</td>
+	                        <td>{{data.reputation}}</td>
+	                        <td>{{data.rname}}</td>
+	                        <td>{{data.rdate}}</td>
+	                    </tr>
+	                    {% endfor %}
+	                </tbody>
+	            </table>           	
+            </div>
+
+    	</div>
 	</body>
 </html>

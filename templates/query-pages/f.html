@@ -30,40 +30,35 @@
 	<body>
 		<div class="container">
 
-            <div class="row">
-
-            	<div class="col-lg-6">
-               		<div class="header">
-                    	<a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
-                	</div>
-            	</div>
-
-            	<div class="col-lg-6">
-	            	<div class="table-section">
-			            <table class="table">
-			                <thead>
-			                    <tr>
-			                        <th scope="col">Username</th>
-			                        <th scope="col">Restaurant Name</th>
-			                        <th scope="col">Average Rating</th>
-			                        <th scope="col">Number of Ratings</th>
-			                    </tr>
-			                </thead>
-			                <tbody>
-			                    {% for data in result %}
-			                    <tr>
-			                        <td>{{data.username}}</td>
-			                        <td>{{data.name}}</td>
-			                        <td>{{data.average_rating}}</td>
-			                        <td>{{data.count}}</td>
-			                    </tr>
-			                    {% endfor %}
-			                </tbody>
-			            </table>
-			        </div>
-            	</div>
-
+        	<div class="header">
+        		<div class="row">
+                    <a href="query"><i class="fa fa-arrow-circle-left fa-4x"></i></a>
+                </div>
             </div>
+
+            <div class="data">
+				<table class="table">
+			    	<thead>
+			        	<tr>
+			            	<th scope="col">Username</th>
+			           		<th scope="col">Restaurant Name</th>
+			                <th scope="col">Average Rating</th>
+			                <th scope="col">Number of Ratings</th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        	{% for data in result %}
+			        	<tr>
+			        		<td>{{data.username}}</td>
+			                <td>{{data.name}}</td>
+			                <td>{{data.average_rating}}</td>
+			                <td>{{data.count}}</td>
+			            </tr>
+			            {% endfor %}
+			        </tbody>
+			    </table>
+            </div>
+            
     	</div>
 	</body>
 </html>

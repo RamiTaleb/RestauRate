@@ -36,11 +36,8 @@ INDEX
 }
 
 .container .buttons {
-    
     width: 800px;
-        
     text-align: center;
-    
     position: absolute;
     top: 60%;
     left: 50%;
@@ -101,7 +98,6 @@ QUERY PAGE
 
 .container .query-buttons{
     padding: 10px;
-    
     width: 1000px;
     position: absolute;
     top: 30%;
@@ -119,7 +115,7 @@ QUERY PAGE
     color: white;
     border: 1px solid rgba(255, 255, 255, 0.4);
     
-    height: 60px;
+    height: 30px;
     width: 100%;
 }
 
@@ -127,9 +123,32 @@ QUERY PAGE
     background: rgba(0, 0, 0, 0);
     color: white;
     border: 1px solid white;
-    
+
+}
+
+.container .submit{
+    height: 20px;
+    width: 40px;
+}
+
+.container th{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.container td{
+    font-weight: 100;
+    font-size: 12px;
 }
 
 .table {
     color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.data{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
 }
