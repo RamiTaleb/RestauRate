@@ -37,9 +37,9 @@ def addMenuItem():
 	item = MenuItem(name=request.form.get('name'), price=request.form.get('price'), restaurant=request.form.get('restaurant'), description=request.form.get('description'), itemType=request.form.get('type'), category=request.form.get('category'))
 	db.session.add(item)
 	db.session.commit()
-	sql = text('select "restaurantId", name from restaurant order by name')
-	result = db.engine.execute(sql)
-	return render_template('/edit-pages/edit-menu-items.html', result=result)
+	sql = text('select "itemId", name, restaurant from menu_item order by name')
+	result1 = db.engine.execute(sql)
+	return render_template('/edit-pages/edit-menu-items.html', result1=result1)
 
 
 @app.route('/delete-menu-item', methods=['GET', 'POST'])

@@ -38,7 +38,6 @@
             
             <div class="forms">
             
-<<<<<<< Updated upstream
                 <div class="col-lg-6">
                     <div class="add">
                         <form method="POST" action="/add-restaurant">
@@ -56,19 +55,6 @@
                             </div>
                             <button type="submit" class="btn">Add</button>
                         </form>
-=======
-            <div class="delete">
-                <form method="POST" action="/delete-restaurant">
-                    <div class="form-group">
-                        
-                        <label for="description">Select a Restaurant:</label>
-                        <select class="form-control" id="restaurant" name="restaurant">
-                            {% for restaurant in result %}
-                                <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurantId }}">{{ restaurant.name }} - {{ restaurant.restaurantId }}</option>
-                            {% endfor %}
-                        </select>
-                        
->>>>>>> Stashed changes
                     </div>
                 </div>
                 
@@ -76,11 +62,10 @@
                     <div class="delete">
                         <form method="POST" action="/delete-restaurant">
                             <div class="form-group">
-
                                 <label for="description">Select a Restaurant:</label>
                                 <select class="form-control" id="restaurant" name="restaurant">
                                     {% for restaurant in result %}
-                                    <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurant.Id }}">{{ restaurant.name }}</option>
+                                    <option name="{{ restaurant.restaurantId }}" value="{{ restaurant.restaurantId }}">{{ restaurant.name }} - {{ restaurant.restaurantId }}</option>
                                     {% endfor %}
                                 </select>
 

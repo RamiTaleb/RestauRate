@@ -47,49 +47,49 @@
                                             <option name="{{ restaurant.name }}" value="{{ restaurant.name }}">{{ restaurant.name }}</option>
                                         {% endfor %}
                                     </select>
-                                    <input class="btn submit" type="submit" />
+                                    <input class="btn submit" type="submit" value="Query"/>
                                 </div>
                             </form>
                         </div>
 
                         <div class="col-lg-3">
-                            <form>
+                            <form method="POST" action="/b">
                                 <div class="form-group">
                                     <label for="queryB" style="color:white">Query B - Select a Restaurant:</label>
-                                    <select class="form-control" id="queryB">
+                                    <select class="form-control" id="queryB" name="queryB">
                                         {% for restaurant in result2 %}
                                             <option>{{ restaurant.name }}</option>
                                         {% endfor %}
                                     </select>
-                                    <input class="btn submit" type="submit" />
+                                    <input class="btn submit" type="submit" value="Query"/>
                                 </div>
                             </form>
                         </div>
 
                         <div class="col-lg-3">
-                            <form>
+                            <form method="POST" action="/c">
                                 <div class="form-group">
                                     <label for="queryC" style="color:white">Query C - Select a Cuisine:</label>
-                                    <select class="form-control" id="queryC">
+                                    <select class="form-control" id="queryC" name="queryC" multiple>
                                         {% for restaurant in result3 %}
-                                            <option>{{ restaurant.restaurantType }}</option>
+                                            <option selected>{{ restaurant.restaurantType }}</option>
                                         {% endfor %}
                                     </select>
-                                    <input class="btn submit" type="submit" />
+                                    <input class="btn submit" type="submit" value="Query"/>
                                 </div>
                             </form>
                         </div>
 
                         <div class="col-lg-3">
-                            <form>
+                            <form method="POST" action="/d">
                                 <div class="form-group">
                                     <label for="queryD" style="color:white">Query D - Select a Restaurant:</label>
-                                    <select class="form-control" id="queryD">
+                                    <select class="form-control" id="queryD" name="queryD">
                                         {% for restaurant in result4 %}
                                             <option>{{ restaurant.name }}</option>
                                         {% endfor %}
                                     </select>
-                                    <input class="btn submit" type="submit" />
+                                    <input class="btn submit" type="submit" value="Query"/>
                                 </div>
                             </form>
                         </div> 

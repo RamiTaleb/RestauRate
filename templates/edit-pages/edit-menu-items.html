@@ -82,8 +82,8 @@
 
                                     <label for="description">Select a Menu Item:</label>
                                     <select class="form-control" id="item" name="item">
-                                        {% for item in result %}
-                                        <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.restaurant }}</option>
+                                        {% for item in result1 %}
+                                        <option name="{{ item.itemId }}" value="{{ item.itemId }}">{{ item.name }} - {{ item.restaurant }}</option>
                                         {% endfor %}
                                     </select>
 

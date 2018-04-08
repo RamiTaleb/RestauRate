@@ -37,38 +37,40 @@
             </div>
 
             <div class="data">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Restaurant ID</th>
-                            <th scope="col">Restaurant Name</th>
-                            <th scope="col">Restaurant Type</th>
-                            <th scope="col">URL</th>
-                            <th scope="col">Location ID</th>
-                            <th scope="col">Manager Name</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Street Address</th>
-                            <th scope="col">Hour Open</th>
-                            <th scope="col">Hour Close</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for data in result %}
-                        <tr>
-                            <td>{{data.restaurantId}}</td>
-                            <td>{{data.name}}</td>
-                            <td>{{data.restaurantType}}</td>
-                            <td>{{data.url}}</td>
-                            <td>{{data.locationId}}</td>
-                            <td>{{data.manager_name}}</td>
-                            <td>{{data.phone_number}}</td>
-                            <td>{{data.street_number}}</td>
-                            <td>{{data.hour_open}}</td>
-                            <td>{{data.hour_close}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Restaurant ID</th>
+                                <th scope="col">Restaurant Name</th>
+                                <th scope="col">Restaurant Type</th>
+                                <th scope="col">URL</th>
+                                <th scope="col">Location ID</th>
+                                <th scope="col">Manager Name</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Street Address</th>
+                                <th scope="col">Hour Open</th>
+                                <th scope="col">Hour Close</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for data in result %}
+                            <tr>
+                                <td class="filterable-cell">{{data.restaurantId}}</td>
+                                <td class="filterable-cell">{{data.name}}</td>
+                                <td class="filterable-cell">{{data.restaurantType}}</td>
+                                <td class="filterable-cell">{{data.url}}</td>
+                                <td class="filterable-cell">{{data.locationId}}</td>
+                                <td class="filterable-cell">{{data.manager_name}}</td>
+                                <td class="filterable-cell">{{data.phone_number}}</td>
+                                <td class="filterable-cell">{{data.street_address}}</td>
+                                <td class="filterable-cell">{{data.hour_open}}</td>
+                                <td class="filterable-cell">{{data.hour_close}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
             
         </div>

@@ -50,11 +50,11 @@
                     <tbody>
                         {% for data in result %}
                         <tr>
-                            <td>{{data.mname}}</td>
-                            <td>{{data.price}}</td>
-                            <td>{{data.manager_name}}</td>
-                            <td>{{data.url}}</td>
-                            <td>{{data.hour_open}}</td>
+                            <td class="filterable-cell">{{data.mname}}</td>
+                            <td class="filterable-cell">{{data.price}}</td>
+                            <td class="filterable-cell">{{data.manager_name}}</td>
+                            <td class="filterable-cell">{{data.url}}</td>
+                            <td class="filterable-cell">{{data.hour_open}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
